@@ -8,8 +8,6 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [
-    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -19,43 +17,137 @@
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "constructor-super": "off",
-        "getter-return": "off", 
-        "no-const-assign": "off", 
-        "no-dupe-args": "off", 
-        "no-dupe-class-members": "off",
-        "no-dupe-keys": "off", 
-        "no-func-assign": "off",
-        "no-import-assign": "off", 
-        "no-new-symbol": "off",
-        "no-obj-calls": "off", 
-        "no-redeclare": "off", 
-        "no-setter-return": "off", 
-        "no-this-before-super": "off",
-        "no-undef": "off",
-        "no-unreachable": "off", 
-        "no-unsafe-negation": "off",
-        "no-var": "error",
-        "prefer-const": "error", 
-        "prefer-rest-params": "error", 
-        "prefer-spread": "error", 
-        "valid-typeof": "off"
+        "overrides": [
+            {
+                "files": ["*.ts", "*.tsx"],
+                "rules": {
+                    "react/prop-types": "off",
+                    "@typescript-eslint/naming-convention": [
+                        "warn",
+                        {
+                            "selector": "default",
+                            "format": ["camelCase"],
+                            "leadingUnderscore": "forbid",
+                            "trailingUnderscore": "forbid"
+                        },
+                        {
+                            "selector": "objectLiteralProperty",
+                            "modifiers": ["requiresQuotes"],
+                            "format": null
+                        },
+                        {
+                            "selector": "objectLiteralProperty",
+                            "format": ["strictCamelCase", "StrictPascalCase"]
+                        },
+                        {
+                            "selector": "typeLike",
+                            "format": ["StrictPascalCase", "PascalCase"]
+                        },
+                        {
+                            "selector": "interface",
+                            "format": ["PascalCase"]
+                        },
+                        {
+                            "selector": "function",
+                            "format": ["strictCamelCase", "StrictPascalCase"]
+                        },
+                        {
+                            "selector": "parameter",
+                            "format": ["strictCamelCase", "StrictPascalCase"]
+                        },
+                        {
+                            "selector": "variable",
+                            "format": ["camelCase", "UPPER_CASE"]
+                        },
+                        {
+                            "selector": "variable",
+                            "modifiers": ["exported"],
+                            "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"]
+                        },
+                        {
+                            "selector": "enumMember",
+                            "format": ["StrictPascalCase"]
+                        }
+                    ]
+            }
+     }
+],
+"rules": {
+    "indent": [ // spacing of 4
+        "error",
+        4
+    ],
+    "linebreak-style": [ 
+        "error",
+        "unix"
+    ],
+    "quotes": [ // String must be in Double Quotes.
+        "error",
+        "double"
+    ],
+    "semi": [ // Semi-colon is must or else error.
+        "error",
+        "always"
+    ],
+        // No space before commas , but space after commas.
+        "comma-spacing": ["error", { "before": false, "after": true }], 
+ 
+        // No error for using unescaped entities.
+        "react/no-unescaped-entities": 0,  
+
+        // No Need to Specify Props types.
+		"react/prop-types": "off",
+
+		// Using JSX without import React.
+		"react/react-in-jsx-scope": "off",
+
+		// JSX Syntax in files woth extensions like .js, .jsx, .ts and .tsx
+		"react/jsx-filename-extension": [
+			1,
+			{ "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+		], 
+
+        "constructor-super":  
+         "off",
+        "getter-return": 
+        "off", 
+        "no-const-assign": 
+        "off", 
+        "no-dupe-args": 
+        "off", 
+        "no-dupe-class-members":
+         "off",
+        "no-dupe-keys":
+         "off", 
+        "no-func-assign": 
+        "off",
+        "no-import-assign":
+         "off", 
+        "no-new-symbol": 
+        "off",
+        "no-obj-calls": 
+        "off", 
+        "no-redeclare": 
+        "off", 
+        "no-setter-return":
+        "off", 
+        "no-this-before-super":
+         "off",
+        "no-undef":
+         "off",
+        "no-unreachable":
+        "off", 
+        "no-unsafe-negation":
+         "off",
+        "no-var":
+        "error",
+        "prefer-const": 
+        "error", 
+        "prefer-rest-params":
+         "error", 
+        "prefer-spread":
+         "error", 
+        "valid-typeof":
+         "off"
     }
 }

@@ -1,4 +1,4 @@
-const person = {
+const person = { /// RUles applied
     get fullName(){
         console.log("test");
     }
@@ -7,9 +7,8 @@ const person = {
 console.log(person.fullName);
 
 
-
 // here the no const rule is working
-const myConstant = 42;
+const myConstant = 42;  // Rule applied
 myConstant = 10; 
 
 console.log(myConstant); 
